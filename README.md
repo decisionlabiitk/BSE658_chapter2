@@ -1,5 +1,5 @@
 ## BSE6XX_chapter2
-### This repository covers two R markdown (.rmd files) files - 
+### This repository covers two important things- 
 1. Tidyverse
 2. ggplot
 
