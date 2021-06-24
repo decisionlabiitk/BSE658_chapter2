@@ -19,7 +19,7 @@ library(ggplot2)
 
 ```{r}
 # Importing covid testing data using tibble read_csv function
-covid_data <- read_csv('../StatewiseTestingDetails.csv')
+covid_data <- read_csv('StatewiseTestingDetails.csv')
 ```
 ```{r}
 covid_data
