@@ -1,0 +1,101 @@
+---
+title: "Working with Packages"
+output: html_notebook
+---
+
+### This notebook aims to explain installing and working with tidyverse packages with some example features implemented on data frames. Have fun!
+
+### Installing Tidyverse package
+#### *Tidyverse package contains a list of packages useful for working with data
+
+```{r}
+install.packages("tidyverse")
+```
+### Loading the tidyverse package
+
+```{r}
+library(tidyverse)
+```
+### Using Tibble and Readr packages
+#### Let's first load these two packages 
+
+```{r}
+library(tibble)
+library(readr)
+```
+
+#### As an example we are using statewise covid testing data for India
+#### Using base R functions
+
+```{r}
+# Importing covid testing data 
+covid_testdata <- read.csv('StatewiseTestingDetails.csv')
+```
+```{r}
+# Using head function to view first few rows of the data
+head(covid_testdata)
+```
+```{r}
+# Using nrow()  and ncol() base R functions to view the number of rows and columns for the data
+nrow(covid_testdata)
+ncol(covid_testdata)
+```
+### Now let's try this using tidyverse functions
+### We are using tibble package from tidyverse, tibble is a modern package to work with dataframes in a better way than base R functions
+```{r}
+# converting the data to tibble
+covid_data <- as_tibble(covid_testdata)
+covid_data
+```
+#### We saw here that using _tibble_ package made things easier, using base R function we had to separately use _head()_, _nrow()_ and _ncol()_ functions to get the necessary information from our data frame, but these features are by default shown by _tibble_ 
+
+### Now we will look at another tidyverse package - __dplyr__
+#### dplyr package is used for editing tibbles 
+
+```{r}
+#loading dplyr package
+library(dplyr)
+```
+#### We will look at filter() and select() functions from the dplyr package
+#### filter() function works on rows for example if we want to reduce our data only to the days when there were more than 5000 covid positive cases
+```{r}
+filter(covid_data, Positive > 5000)
+```
+#### Let's try filter to view data only for Uttarakhand state
+```{r}
+filter(covid_data, State == 'Uttarakhand')
+```
+#### Select function is used to select columns 
+#### as an example, if we just want to view the states and the total Samples collected 
+```{r}
+select(covid_data, State, TotalSamples)
+```
+#### or if we want to view all columns other than the column with number of Negative results, we can use '-' minus to eliminate that column
+```{r}
+select(covid_data, -Negative)
+```
+#### Another function mutate an be used to edit the content of the tibble
+#### Let's say if we want the proportion of positive cases, we can use mutate as shown below
+```{r}
+newdata = mutate(covid_data, prop = Positive/TotalSamples)
+newdata
+```
+#### To view it as percentage we can just multiply the same column 'prop' by 100
+```{r}
+newdata = mutate(newdata, prop = prop*100)
+newdata
+```
+#### arrange function from dplyr package is used to arrange tibble data in an order
+#### Let's arrange rows in the ascending order of Date (Note that ascending is the by default order in arrange function)
+```{r}
+arrange(covid_data, Date)
+```
+#### Let's arrange rows in the descending order of number of positive cases
+```{r}
+arrange(covid_data, desc(Positive))
+```
+
+```{r}
+write.csv(covid_data,file= "ggplot/harsh.csv")
+```
+
