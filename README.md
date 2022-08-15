@@ -1,10 +1,10 @@
-## BSE6XX_chapter2
+## BSE658: Chapter 2
 
-### This repository covers two important things-
+### This repository covers two important things:
 
 1.  Tidyverse
-2.  ggplot
+2.  ggplot2
 
-tidyverse.rmd file explains about the tidyverse packages to work with data frames, ggplot.rmd explains working with ggplot2 package to quickly create beautiful plots
+`Tidyverse.rmd` file explains a few of the `tidyverse` packages in order to handle data frames. `ggplot.rmd` explains how to use `ggplot2` package to create beautiful plots. 
 
 The html files can be downloaded and opened to view in your browser.
