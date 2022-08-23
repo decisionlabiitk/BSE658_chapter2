@@ -1,0 +1,47 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+# Create logical object
+# Generate a logical object using logical operator
+```
+
+```{r}
+# Create double, integer, character and complex object
+# Use typeof to confirm variable type
+```
+
+```{r}
+# create an atomic vector, z
+# typeof(z)
+# length(z)
+# str(z)
+
+# create a list:
+a <- c("A", "B")
+b <- c("B", "A")
+
+z <- list(a = b, b = a)
+z$a
+
+x <- list(1, "a", TRUE, 1+4i)
+x[2]
+x[[1]]
+
+y <- 1:10
+y <- as.list(y)
+length(y)
+
+# create a matrix using matrix()
+m <- matrix(1:6, nrow=2, ncol =3)
+
+# create a data frame using data.frame()
+df <- data.frame(id = letters[1:10], x = 1:10, y = rnorm(10))
+
+# create a vector with two factors
+
+# skip tables
+```
+
